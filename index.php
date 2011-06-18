@@ -1,9 +1,9 @@
 <?
-	global $PHPFW_SYTEM_DIR="./system";
-	global $PHPFW_APPLICATION_DIR="./app_test";
+	global $PHPFW_SYS_DIR="./system";
+	global $PHPFW_APP_DIR="./app_test";
+	global $PHPFW_INDEXNAME="index.php";
 	
-	
-	require "$PHPFW_SYTEM_DIR/init.php";
+	require "$PHPFW_SYS_DIR/init.php";
 	$phpfw=fw_init();
 	
 ?>

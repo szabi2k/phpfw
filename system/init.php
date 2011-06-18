@@ -3,10 +3,12 @@
 // registering autoloader
 spl_autoload_register(function ($class_name)
 {
-	global $PHPFW_SYSDIR;
+	global $PHPFW_SYS_DIR;
+	global $PHPFW_APP_DIR;
+
 	$class_name=preg_replace("/^fw_/","",$class_name);
 	
-    $possibilities = array("$PHPFW_SYSDIR/$class_name.php",$class_name.'.php');
+    $possibilities = array("$PHPFW_SYS_DIR/$class_name.php","$PHPFW_APP_DIR/$class_name.php",$class_name.'.php');
     foreach ($possibilities as $file)
     {
         if (file_exists($file))
@@ -19,13 +21,13 @@ spl_autoload_register(function ($class_name)
 }); 
 // done registering autoloader
 
-global $PHPFW_APPDIR;
-include("$PHPFW_APPDIR/config/config.php");
+global $PHPFW_APP_DIR;
+include("$PHPFW_APP_DIR/config/config.php");
 
 
 	
 
-if($conf['enable_routing'])	$fw_router=new router();
+if($conf['enable_routing'])	($run_controller,$run_function)=new router();
 
 
 ?>
