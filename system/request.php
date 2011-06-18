@@ -25,6 +25,12 @@ class fw_request
 	function process()
 	{
 		$this->uri_original=$_SERVER['PHP_SELF'];
+
+		// it's pointless trying to sanitize a broken uri, 
+		// if it's broken, or contains illegal characters we just simply quit
+		if(preg_match('/[^a-zA-Z0-9\-_]/',$this->uri_original))
+			return;
+			// TODO implement here error_view display
 		
 		if($conf['enable_routing']==1)
 		{
