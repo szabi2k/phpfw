@@ -25,9 +25,9 @@ global $PHPFW_APP_DIR;
 include("$PHPFW_APP_DIR/config/config.php");
 
 
-	
+$rq=new fw_request();	
 
-if($conf['enable_routing'])	($run_controller,$run_function)=new router();
+//if($config['enable_routing'])	list($run_controller,$run_function)=new router();
 
 
 ?>
